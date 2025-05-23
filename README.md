@@ -64,10 +64,10 @@ bash start.sh
 ```text
 wa-base-bot/
 ├── index.js              # AutoRestarter
-├── baron.js              # Individuelle Bot-Funktionen
+├── baron.js              # Bot-Funktionen
 ├── server.js             # Server (main)
 ├── dev/                  # Einstellungen, IDs, Befehle
-│   ├── cmd.js            # Alle registrierten Commands
+│   ├── cmd.js            # Console Cmd
 │   ├── id.js             # IDs Maker
 │   ├── setting.js        # Globale Einstellungen
 ├── messages.json         # Nachrichten
