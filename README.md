@@ -31,21 +31,13 @@ Ein moderner und modularer WhatsApp-Bot auf Basis von [Baileys](https://github.c
 ### Schritte
 
 ```bash
-# Repository klonen
+pkg update && pkg upgrade -y
+pkg install git -y
 git clone https://github.com/Barons-Team/wa-base-bot.git
 cd wa-base-bot
-
-# Abhängigkeiten installieren
-npm install
-```
-
-Alternativ kann auch das Skript `install.sh` verwendet werden:
-
-```bash
 bash install.sh
 ```
 
----
 
 ## ▶️ Start
 
