@@ -12,9 +12,13 @@ Ein moderner und modularer WhatsApp-Bot auf Basis von [Baileys](https://github.c
 - 🧩 Dynamisches Command-System (`baron.js`)
 - 💾 Eigene Einstellungen in `dev/`
 - 🎛️ Einfache Konfiguration & Struktur
-- 📜 Automatische Nachrichtensteuerung via `messages.json`
+- 📜 Automatische Nachrichten speicherung `messages.json`
 - 🖥️ Bash-Skripte zum einfachen Starten & Installieren
 
+---
+## Infos
+- German: Dies ist kein Vollständiger Bot sondern dient als Base
+- English: This is not a complete bot but serves as a base
 ---
 
 ## 🛠️ Installation
