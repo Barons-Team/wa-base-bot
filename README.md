@@ -114,9 +114,8 @@ MIT License – siehe [`LICENSE`](./LICENSE)
 ## 🙋 Fragen oder Hilfe?
 
 - Projekt von [Barons-Team](https://github.com/Barons-Team)
+- Instagram: @6u.cg
+- Telegram: @xyqr0
+- Telegram Channel: [Link](https://t.me/wegschleifen)
 
 ---
-
-## ⭐ Unterstützen
-
-Wenn dir das Projekt gefällt, hinterlasse ein ⭐ auf GitHub – das motiviert zur Weiterentwicklung!
