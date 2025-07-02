@@ -1,5 +1,5 @@
 require("./dev/settings.js")
-const makeWASocket = require('baron-baileys').default;
+const makeWASocket = require('baron-baileys-v2').default;
 const {
 default:
 generateWAMessageFromContent,
@@ -16,7 +16,7 @@ relayMessage,
 jidDecode,
 Browsers,
 proto,
-} = require("baron-baileys")
+} = require("baron-baileys-v2")
 const FileType = require('file-type')
 const pino = require('pino')
 const { Boom } = require('@hapi/boom')
