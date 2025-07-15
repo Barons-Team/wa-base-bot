@@ -161,8 +161,10 @@ conn.ev.on('creds.update', saveCreds)
 store.bind(conn.ev);
 if (!conn.authState.creds.registered) {
 const phoneNumber = await question('Enter number: ');
+await sleep(1000);
 let code = await conn.requestPairingCode(phoneNumber.replace(/[^\d]/g, ''), global.pairingCode);
 code = code?.match(/.{1,4}/g)?.join("-") || code;
+await sleep(1000);
 console.log(`code :`, code);
 }
 //==================================================================\\
