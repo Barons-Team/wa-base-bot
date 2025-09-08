@@ -132,33 +132,18 @@ const saveMessagesToFile = (messages) => {
 };
 //==================================================================\\
 const msgRetryCounterCache = new NodeCache() 
+const groupCache = new NodeCache({stdTTL: 5 * 60, useClones: false})
 async function baronStart() {
 const { state, saveCreds } = await useMultiFileAuthStateV2("./db/session")
 const conn = makeWASocket({
 logger: pino({ level: "silent" }),
 printQRInTerminal: false,
-markOnlineOnConnect: true,
 auth: state,
-emitOwnEvents: true,
-browser: Browsers.iOS('SAFARI'),
-msgRetryCounterCache, // Resolve waiting messages
-syncFullHistory: true,
-  getMessage: async (key) => {
-    if (store) {
-      const msg = await store.loadMessage(key.remoteJid, key.id);
-      return msg.message || undefined;
-    }
-    return {
-      conversation: "null"
-    };
-  },
-shouldSyncHistoryMessage: msg => {
-return !!msg.syncType;
-},
-}, store);
+cachedGroupMetadata: async (jid) => groupCache.get(jid),
+});
 //==================================================================\\
 conn.ev.on('creds.update', saveCreds)
-store.bind(conn.ev);
+// store.bind(conn.ev);
 if (!conn.authState.creds.registered) {
 const phoneNumber = await question('Enter number: ');
 await sleep(1000);
