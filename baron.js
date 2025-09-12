@@ -17,7 +17,7 @@ const {
           Browsers,
           getDevice,
           proto,
-          } = require("baron-baileys-2")
+          } = require("baron-baileys-v2")
 const fs = require('fs')
 const util = require('util')
 const chalk = require('chalk')
