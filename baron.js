@@ -37,7 +37,18 @@ m.chat = m.key.remoteJid
 m.fromMe = m.key.fromMe
 // m.isGroup = m.chat.endsWith('@g.us')
 m.isGroup = m.chat?.endsWith('@g.us') || false
-m.sender = conn.decodeJid(m.fromMe && conn.user. id || m.participant || m.key.participant || m.chat || '')
+console.log(m)
+const jids3 = [
+  m.key?.participantAlt,
+  m.key?.participant,
+  m.chat,
+  m.key?.remoteJid,
+  m.key?.remoteJidAlt
+];
+const jids2 = jids3.find(j => j && j.endsWith('@s.whatsapp.net')) || '';
+
+m.sender = conn.decodeJid(m.fromMe && conn.user.id || jids2 || '')
+// m.sender = conn.decodeJid(m.fromMe && conn.user. id || m.participant || m.key.participant || m.chat || '')
 if (m.isGroup) m.participant = conn.decodeJid(m.key.participant) || ''
 function getTypeM(message) {
     const type = Object.keys(message)

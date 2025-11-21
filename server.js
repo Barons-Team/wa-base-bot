@@ -5,7 +5,7 @@ default:
 generateWAMessageFromContent,
 getAggregateVotesInPollMessage,
 downloadContentFromMessage,
-useMultiFileAuthStateV2,
+useMultiFileAuthState,
 generateWAMessage,
 makeInMemoryStore,
 DisconnectReason,
@@ -134,7 +134,7 @@ const saveMessagesToFile = (messages) => {
 const msgRetryCounterCache = new NodeCache() 
 const groupCache = new NodeCache({stdTTL: 5 * 60, useClones: false})
 async function baronStart() {
-const { state, saveCreds } = await useMultiFileAuthStateV2("./db/session")
+const { state, saveCreds } = await useMultiFileAuthState("./db/session")
 const conn = makeWASocket({
 logger: pino({ level: "silent" }),
 printQRInTerminal: false,
@@ -160,8 +160,7 @@ if (!mek.message) return
 mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
 if (mek.key && mek.key.remoteJid === 'status@broadcast') return
 if (mek.key.id.startsWith('BAE5')) return
-let M = proto.WebMessageInfo
-const m = M.fromObject(mek)
+const m = mek
 saveMessagesToFile(m);
 require("./baron.js")(conn, m, chatUpdate, store)
 } catch (err) {
