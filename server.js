@@ -272,7 +272,8 @@ const makeFakeCommand = async (m, conn, text, chatUpdate) => {
     for (let pollOption of pollOptions) {
       options.push(pollOption.vote);
     }
-    let pollMsg = await conn.sendMessage(jid, { botInvoke: {
+    let pollMsg = await conn.sendMessage(jid, { 
+      botInvokeMessage: {
       messageContextInfo: {
         messageSecret: (0, crypto.randomBytes)(32),
       },
